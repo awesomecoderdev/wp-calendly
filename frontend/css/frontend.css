@@ -1,1 +1,4 @@
-/* frontend.cs */
+/* frontend.css */
+label#wpforms-10586-field_2_suggestion {
+    display: none !important;
+}

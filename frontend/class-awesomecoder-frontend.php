@@ -101,7 +101,7 @@ class Awesomecoder_Frontend
 		 * class.
 		 */
 
-		wp_enqueue_script("{$this->plugin_name}", AWESOMECODER_CALENDLY_URL . 'frontend/js/frontend.js', array('jquery'), (filemtime(AWESOMECODER_CALENDLY_PATH . "frontend/js/frontend.js") ? filemtime(AWESOMECODER_CALENDLY_PATH . "frontend/js/frontend.js") : $this->version), false);
+		wp_enqueue_script("{$this->plugin_name}", AWESOMECODER_CALENDLY_URL . 'frontend/js/frontend.js', array('jquery'), (filemtime(AWESOMECODER_CALENDLY_PATH . "frontend/js/frontend.js") ? filemtime(AWESOMECODER_CALENDLY_PATH . "frontend/js/frontend.js") : $this->version), true);
 
 		// Some local vairable to get ajax url
 		wp_localize_script($this->plugin_name, 'awesomecoder', array(
