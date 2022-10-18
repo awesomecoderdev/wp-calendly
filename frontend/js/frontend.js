@@ -28,6 +28,8 @@ const emailInput = document.getElementById("wpforms-10586-field_2")
 const nameInput = document.getElementById("wpforms-10586-field_22")
 const wpCalendly = document.getElementById("wp_calendly")
 const nextBtn = document.querySelector(".wpforms-page-2 .wpforms-page-next")
+const phoneInput = document.getElementById("wpforms-10586-field_24")
+const phoneErr = document.getElementById("wpforms-10586-field_24-error")
 
 // vars
 var calendly_name = getCookie("calendly_name")
@@ -66,3 +68,18 @@ nextBtn.addEventListener("click",function(e){
     wpCalendly.innerHTML = html;
 
 })
+
+// fix phone number issue
+setInterval(() => {
+    const phoneFormat = jQuery("#wpforms-10586-field_24").attr("placeholder").split(/(?!$)/u);
+    var formattedPhone = "";
+    phoneFormat.map((pn,i)=>{
+        if(Number.isInteger(parseInt(pn))){
+            formattedPhone += 9
+        }else{
+            formattedPhone += pn
+        }
+    })
+    jQuery(":input").inputmask();
+    jQuery("#wpforms-10586-field_24").inputmask({"mask": formattedPhone});
+}, 1500);
